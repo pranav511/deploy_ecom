@@ -9,37 +9,37 @@ export class ProductService {
   cartData = new EventEmitter<product[] | []>();
   constructor(private http: HttpClient) { }
   addProduct(data: product) {
-    return this.http.post('http://localhost:3000/products', data);
+    return this.http.post('https://node-ecommerce1.onrender.com/products', data);
   }
   productList() {
-    return this.http.get<product[]>('http://localhost:3000/products');
+    return this.http.get<product[]>('https://node-ecommerce1.onrender.com/products');
   }
 
   deleteProduct(id: number) {
-    return this.http.delete(`http://localhost:3000/products/${id}`);
+    return this.http.delete(`https://node-ecommerce1.onrender.comproducts/${id}`);
   }
 
   getProduct(id: string) {
-    return this.http.get<product>(`http://localhost:3000/products/${id}`);
+    return this.http.get<product>(`https://node-ecommerce1.onrender.com/${id}`);
   }
 
   updateProduct(product: product) {
     return this.http.put<product>(
-      `http://localhost:3000/products/${product.id}`,
+      `https://node-ecommerce1.onrender.com/products${product.id}`,
       product
     );
   }
   popularProducts() {
-    return this.http.get<product[]>('http://localhost:3000/products?_limit=3');
+    return this.http.get<product[]>('https://node-ecommerce1.onrender.com/products?_limit=3');
   }
 
   trendyProducts() {
-    return this.http.get<product[]>('http://localhost:3000/products?_limit=8');
+    return this.http.get<product[]>('https://node-ecommerce1.onrender.com/products?_limit=8');
   }
 
   searchProduct(query: string) {
     return this.http.get<product[]>(
-      `http://localhost:3000/products?q=${query}`
+      `https://node-ecommerce1.onrender.com/products?q=${query}`
     );
   }
 
